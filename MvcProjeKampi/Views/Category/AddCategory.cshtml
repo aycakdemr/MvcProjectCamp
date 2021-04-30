@@ -1,4 +1,4 @@
-﻿
+﻿<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 @{
     Layout = null;
 }
@@ -7,5 +7,11 @@
 
 <br />
 
-Hoşgeldiniz
+<form class="form-group" method="post">
+    <input type="text" placeholder="Kategori Adı" name="CategoryName" class="form-control" />
+    <br />
+    <input type="text" placeholder="Açıklama Giriniz" name="CategoryDescription" class="form-control" />
+    <br />
+    <button class="btn btn-primary">Ekle</button>
 
+</form>

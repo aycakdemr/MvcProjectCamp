@@ -11,19 +11,25 @@ namespace MvcProjeKampi.Controllers
     public class CategoryController : Controller
     {
         // GET: Category
-        CategoryManager cm = new CategoryManager();
+       // CategoryManager cm = new CategoryManager();
         public ActionResult Index()
         {
             return View();
         }
         public ActionResult GetAll()
         {
-            var value = cm.GetAll();
-            return View(value);
+           // var value = cm.GetAll();
+            return View();
         }
+        [HttpGet]
+        public ActionResult AddCategory()
+        {
+            return View();
+        }
+        [HttpPost]
         public ActionResult AddCategory(Category category)
         {
-            cm.CategoryAdd(category);
+           // cm.CategoryAdd(category);
             return RedirectToAction("GetAll");
         }
     }
