@@ -20,6 +20,12 @@ namespace BusinessLayer.Concrete
             _categoryDal = categoryDal;
         }
 
+        public void CategoryAdd(Category category)
+        {
+
+            _categoryDal.Insert(category);
+        }
+
         //GenericRepository<Category> repo = new GenericRepository<Category>();
 
         //public List<Category> GetAll()
@@ -43,5 +49,7 @@ namespace BusinessLayer.Concrete
         {
             return _categoryDal.List();
         }
+
+        
     }
 }
