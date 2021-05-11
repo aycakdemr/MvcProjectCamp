@@ -2242,6 +2242,7 @@
     <Content Include="AdminLTE-3.0.4\plugins\sweetalert2-theme-bootstrap-4\bootstrap-4.scss" />
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.js.map" />
     <Content Include="AdminLTE-3.0.4\README.md" />
+    <Content Include="Views\Statistics\ödev1.png" />
     <Content Include="web2\css\bootstrap.css" />
     <Content Include="web2\css\clndr.css" />
     <Content Include="web2\css\jqvmap.css" />
