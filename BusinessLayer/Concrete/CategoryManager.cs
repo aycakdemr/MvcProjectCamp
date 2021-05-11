@@ -26,6 +26,26 @@ namespace BusinessLayer.Concrete
             _categoryDal.Insert(category);
         }
 
+        public void CategoryDelete(Category category)
+        {
+            _categoryDal.Delete(category);
+        }
+
+        public void CategoryUpdate(Category category)
+        {
+            _categoryDal.Update(category);
+        }
+
+        public Category GetById(int id)
+        {
+           return _categoryDal.Get(x => x.CategoryId == id);
+        }
+
+        public Category GetByName(string name)
+        {
+            return _categoryDal.Get(x => x.CategoryName == name);
+        }
+
         //GenericRepository<Category> repo = new GenericRepository<Category>();
 
         //public List<Category> GetAll()
@@ -50,6 +70,14 @@ namespace BusinessLayer.Concrete
             return _categoryDal.List();
         }
 
-        
+        public List<Category> StatusIsFalse()
+        {
+            return _categoryDal.List(x => x.CategoryStatus == false);
+        }
+
+        public List<Category> StatusIsTrue()
+        {
+            return _categoryDal.List(x => x.CategoryStatus == true);
+        }
     }
 }

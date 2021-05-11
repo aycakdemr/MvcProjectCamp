@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete;
+using EntityLayer.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IHeadingDal:IRepository<Heading>
     {
+   
     }
 }

@@ -1,0 +1,104 @@
+﻿@model EntityLayer.Dto.Statistics
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<br />
+<h2>İstatistik Sayfası</h2>
+
+
+    <link href="/web2/css/style.css" rel="stylesheet" />
+    <link href="/web2/css/jqvmap.css" rel="stylesheet" />
+    <script src="/web2/js/Chart1.js"></script>
+    <script src="/web2/js/jquery.min.js"></script>
+    <script src="/web2/js/jquery.vmap.js"></script>
+    <script src="/web2/js/jquery.vmap.sampledata.js"></script>
+    <script src="/web2/js/jquery.vmap.world.js"></script>
+
+    <script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('#vmap').vectorMap({
+            map: 'world_en',
+            backgroundColor: '#333333',
+            color: '#ffffff',
+            hoverOpacity: 0.7,
+            selectedColor: '#666666',
+            enableZoom: true,
+            showTooltip: true,
+            values: sample_data,
+            scaleColors: ['#C8EEFF', '#006491'],
+            normalizeFunction: 'polynomial'
+        });
+    });
+    </script>
+
+    <script>
+    $(document).ready(function (c) {
+        $('.alert-close6').on('click', function (c) {
+            $('.world-map').fadeOut('slow', function (c) {
+                $('.world-map').remove();
+            });
+        });
+    });
+    </script>
+    <div class="list_of_members">
+       
+            <div class="sales" style="height:200px ; width:200px">
+                <div class="icon-text">
+                    <h3>
+                        @Model.CategoriesCount
+                    </h3>
+                    <p>Toplam Kategori</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+      
+
+            <div class="new-users" style="height:200px ; width:200px">
+                <div class="icon-text">
+                    <h3>
+                        @Model.SoftwareHeaderCount
+                    </h3>
+                    <p>"Yazılım" kategorisine ait başlık sayısı</p>
+                </div>
+                <div class="clearfix"></div>
+                
+            </div>
+            <div class="orders" style="height:200px ; width:200px">
+                <div class="icon-text">
+                    <h3>
+                        @Model.WritersCount
+
+                    </h3>
+                    <p> Yazar adında 'a' harfi geçen yazar sayısı</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="visitors" style="height:200px ; width:200px ; margin-right:30px">
+
+                <div class="icon-text">
+                    <h3>
+                        @Model.CategoryNameWithTheMostTitles
+
+                    </h3>
+                    <p> En fazla başlığa sahip kategori adı</p>
+                </div>
+                <div class="clearfix"></div>
+                
+            </div>
+ 
+
+            <div class="sales" style="height:300px ; width:300px">
+                <div class="icon-text">
+                    <h3>
+                        @Model.Difference
+                    </h3>
+                    <p>Kategori tablosunda durumu true olan kategoriler ile false olan kategoriler arasındaki sayısal fark</p>
+                </div>
+                <div class="clearfix"></div>
+                
+            </div>
+        <div class="clearfix"></div>
+    </div>
