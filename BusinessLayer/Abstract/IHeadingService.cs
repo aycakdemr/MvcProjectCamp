@@ -9,6 +9,12 @@ namespace BusinessLayer.Abstract
 {
     public interface IHeadingService
     {
+        List<Heading> GetList();
+        void HeadingAdd(Heading heading);
+        Heading GetById(int id);
+        Heading GetByName(string name);
+        void HeadingDelete(Heading heading);
+        void HeadingUpdate(Heading heading);
         List<Heading> Get(int id);
         List<Heading> CategoryNameWithTheMostTitles();
 

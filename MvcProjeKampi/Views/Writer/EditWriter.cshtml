@@ -1,15 +1,17 @@
 ﻿@model EntityLayer.Concrete.Writer
 @{
-    ViewBag.Title = "AddWriter";
+    ViewBag.Title = "EditWriter";
     Layout = "~/Views/Shared/_adminLayout.cshtml";
 }
-
-<h2>Yeni yazar ekleme</h2>
-
 <br />
-@using (Html.BeginForm("AddWriter", "Writer", FormMethod.Post))
+<h2>Yazar Düzenleme Sayfası</h2>
+
+@using (Html.BeginForm("EditWriter", "Writer", FormMethod.Post))
 {
 <div class="form-group">
+    @Html.Label("yazar id")
+    @Html.TextBoxFor(x => x.WriterId, new { @class = "form-control" })
+    <br />
     @Html.Label("yazar adı")
     @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.WriterName)
@@ -30,7 +32,7 @@
     @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.WriterImage)
     <br />
-    @Html.Label("yazar ünvan")
+    @Html.Label("yazar ünvanı")
     @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.WriterTitle)
     <br />
@@ -38,6 +40,6 @@
     @Html.TextBoxFor(x => x.WriterAbout, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.WriterAbout)
     <br />
-    <button class="btn btn-info">yazarı ekle</button>
+    <button class="btn btn-success">yazarı güncelle</button>
 </div>
 }

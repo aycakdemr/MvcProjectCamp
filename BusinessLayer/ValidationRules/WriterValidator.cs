@@ -14,6 +14,7 @@ namespace BusinessLayer.ValidationRules
         {
             RuleFor(x => x.WriterName).NotEmpty().WithMessage("yazar adı boş geçilemez");
             RuleFor(x => x.WriterSurname).NotEmpty().WithMessage("yazar soyadı boş geçilemez");
+            RuleFor(x => x.WriterTitle).NotEmpty().WithMessage("yazar ünvan boş geçilemez");
             RuleFor(x => x.WriterAbout).Must(ContainsA).WithMessage("hakkımda kısmı a karakteri içermeli");
             RuleFor(x => x.WriterName).MinimumLength(2).WithMessage("en az iki karakter girişi yapın");
             RuleFor(x => x.WriterSurname).MaximumLength(50).WithMessage("en fazla 50 karakter girişi");
