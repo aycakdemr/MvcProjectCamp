@@ -80,6 +80,14 @@
     <Compile Include="Migrations\202105191146505_mig_writertitle_add.designer.cs">
       <DependentUpon>202105191146505_mig_writertitle_add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105230949027_mig_imagesize_change.cs" />
+    <Compile Include="Migrations\202105230949027_mig_imagesize_change.designer.cs">
+      <DependentUpon>202105230949027_mig_imagesize_change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105231005410_mig_writer_addstatus.cs" />
+    <Compile Include="Migrations\202105231005410_mig_writer_addstatus.designer.cs">
+      <DependentUpon>202105231005410_mig_writer_addstatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -102,6 +110,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105191146505_mig_writertitle_add.resx">
       <DependentUpon>202105191146505_mig_writertitle_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105230949027_mig_imagesize_change.resx">
+      <DependentUpon>202105230949027_mig_imagesize_change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105231005410_mig_writer_addstatus.resx">
+      <DependentUpon>202105231005410_mig_writer_addstatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
