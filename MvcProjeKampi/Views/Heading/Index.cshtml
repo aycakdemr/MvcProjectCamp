@@ -5,7 +5,9 @@
     Layout = "~/Views/Shared/_adminLayout.cshtml";
 
 }
-@{ string color = "";}
+@{ string color = "";
+    string deletebutton = "";
+    }
 
 @*<br />
     <table class="table table-bordered">
@@ -69,6 +71,9 @@
                             <th style="width: 30%">
                                 Oluşturan Yazar
                             </th>
+                            <th style="width: 10%">
+                                Durum
+                            </th>
                             <th style="width: 8%" class="text-center">
                                 Kategori
                             </th>
@@ -95,7 +100,14 @@
                             {
                                 color = "badge badge-secondary";
                             }
-                           
+                            if(item.HeadingStatus == false)
+                            {
+                                deletebutton = "Aktif Yap";
+                            }
+                            if (item.HeadingStatus == true)
+                            {
+                                deletebutton = "Pasif Yap";
+                            }
 
                             <tr>
                                 <td>
@@ -117,6 +129,7 @@
                                         </li>
                                     </ul>
                                 </td>
+                                <td>@item.HeadingStatus</td>
                                 <td class="project-state">
                                     <span class="@color">@item.Category.CategoryName</span>
                                 </td>
@@ -126,15 +139,15 @@
                                         </i>
                                         Yazılar
                                     </a>
-                                    <a class="btn btn-info btn-sm" href="#">
+                                    <a class="btn btn-info btn-sm" href="/Heading/EditHeading/@item.HeadingId">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Düzenle
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="#">
+                                    <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingId">
                                         <i class="fas fa-trash">
                                         </i>
-                                        Sil
+                                        @deletebutton
                                     </a>
                                 </td>
                             </tr>
