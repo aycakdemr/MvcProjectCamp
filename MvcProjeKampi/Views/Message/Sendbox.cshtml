@@ -1,14 +1,8 @@
 ﻿@using EntityLayer.Concrete
-@model List<Contact>
+@model List<Message>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Sendbox";
     Layout = "~/Views/Shared/_adminLayout.cshtml";
-}
-
-
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -22,7 +16,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Mesaj SAyfası</h1>
+                    <h1>Mesaj Sayfası</h1>
                 </div>
 
 
@@ -32,7 +26,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-           @Html.Action("MessageListMenu","Contact")
+            @Html.Action("MessageListMenu", "Contact")
             <!-- /.col -->
             <div class="col-md-9">
                 <div class="card card-primary card-outline">
@@ -87,10 +81,10 @@
                                                     <label for="check1"></label>
                                                 </div>
                                             </td>
-                                            <td class="mailbox-star"><a href="/Contact/GetContactDetails/@item.ContactId"><i class="fas fa-star text-warning"></i></a></td>
-                                            <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.ContactId">@item.UserName</a></td>
+                                            <td class="mailbox-star"><a href="/Contact/GetContactDetails/@item.MessageId"><i class="fas fa-star text-warning"></i></a></td>
+                                            <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.MessageId">@item.ReceiverMail</a></td>
                                             <td class="mailbox-subject">
-                                                <b>@item.Subject</b> @item.Message
+                                                <b>@item.Subject</b> @item.MessageContent
                                             </td>
                                             <td class="mailbox-attachment"></td>
                                             <td class="mailbox-date">5 mins ago</td>
