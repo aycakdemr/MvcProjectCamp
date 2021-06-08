@@ -23,6 +23,16 @@ namespace MvcProjeKampi.Controllers
             var value = mm.GetListSendInbox();
             return View(value);
         }
+        public ActionResult GetInBoxMessagetDetails(int id)
+        {
+            var value = mm.GetById(id);
+            return View(value);
+        }
+        public ActionResult GetSendBoxMessagetDetails(int id)
+        {
+            var value = mm.GetById(id);
+            return View(value);
+        }
         [HttpGet]
         public ActionResult NewMessage()
         {
@@ -31,6 +41,7 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult NewMessage(Message message)
         {
+            message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             mm.MessageAdd(message);
             return View();
         }

@@ -57,6 +57,7 @@
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
+    <Compile Include="Abstract\IImageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="EntityFramework\EfImageDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202104161907092_mig1.cs" />
@@ -101,6 +103,14 @@
     <Compile Include="Migrations\202106031733144_mig_add_message.cs" />
     <Compile Include="Migrations\202106031733144_mig_add_message.designer.cs">
       <DependentUpon>202106031733144_mig_add_message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106081804470_mig_contact_date.cs" />
+    <Compile Include="Migrations\202106081804470_mig_contact_date.designer.cs">
+      <DependentUpon>202106081804470_mig_contact_date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106081845246_mig_add_image.cs" />
+    <Compile Include="Migrations\202106081845246_mig_add_image.designer.cs">
+      <DependentUpon>202106081845246_mig_add_image.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,6 +149,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106031733144_mig_add_message.resx">
       <DependentUpon>202106031733144_mig_add_message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106081804470_mig_contact_date.resx">
+      <DependentUpon>202106081804470_mig_contact_date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106081845246_mig_add_image.resx">
+      <DependentUpon>202106081845246_mig_add_image.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

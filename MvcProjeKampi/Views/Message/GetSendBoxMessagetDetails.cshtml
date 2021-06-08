@@ -1,8 +1,8 @@
-﻿@model EntityLayer.Concrete.Contact
+﻿@model EntityLayer.Concrete.Message
 
 @{
-    ViewBag.Title = "GetContactDetails";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "GetSendBoxMessagetDetails";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -14,9 +14,14 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>İletişim Sayfası</h1>
+                    <h1>Compose</h1>
                 </div>
-                
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Compose</li>
+                    </ol>
+                </div>
             </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -25,11 +30,10 @@
         <div class="container-fluid">
             <div class="row">
                 @Html.Action("MessageListMenu", "Contact")
-                <!-- /.col -->
                 <div class="col-md-9">
                     <div class="card card-primary card-outline">
                         <div class="card-header">
-                            <h3 class="card-title">Gelen Mesaj Detayları </h3>
+                            <h3 class="card-title">Mesajı Oku </h3>
                             <div class="card-tools">
                                 <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Previous"><i class="fas fa-chevron-left"></i></a>
                                 <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Next"><i class="fas fa-chevron-right"></i></a>
@@ -39,35 +43,18 @@
 
                         <div class="card-body p-0">
                             <div class="mailbox-read-info">
-                                <h5>@Html.DisplayFor(x => x.Subject)</h5>
+                                <h5>Konu: @Html.DisplayFor(x => x.Subject)</h5>
                                 <br />
                                 <h6>
-                                    MAil: @Html.DisplayFor(x => x.UserMail)
-                                    <span class="mailbox-read-time float-right">15 Feb. 2015 11:03 PM</span>
+                                    Alıcı: @Html.DisplayFor(x => x.ReceiverMail)
+                                    <span class="mailbox-read-time float-right">@(((DateTime)Model.MessageDate).ToString("dd-MMMMM-yyyy")) </span>
                                 </h6>
                             </div>
                             <!-- /.mailbox-read-info -->
-                            <div class="mailbox-controls with-border text-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Delete">
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Reply">
-                                        <i class="fas fa-reply"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Forward">
-                                        <i class="fas fa-share"></i>
-                                    </button>
-                                </div>
-                                <!-- /.btn-group -->
-                                <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" title="Print">
-                                    <i class="fas fa-print"></i>
-                                </button>
-                            </div>
                             <!-- /.mailbox-controls -->
                             <div class="mailbox-read-message">
 
-                                <p>@Html.DisplayFor(x => x.Message)</p>
+                                <p>@Html.DisplayFor(x => x.MessageContent)</p>
                             </div>
                             <!-- /.mailbox-read-message -->
                         </div>
@@ -82,3 +69,4 @@
     </section>
 </body>
 </html>
+
