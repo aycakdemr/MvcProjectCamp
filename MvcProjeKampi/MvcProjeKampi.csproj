@@ -2426,6 +2426,7 @@
     <Content Include="abilitycard\js\jquery-1.11.1.min.js" />
     <Content Include="abilitycard\js\jquery.circlechart.js" />
     <Content Include="abilitycard\w3layouts-License.txt" />
+    <Content Include="ödev.png" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
