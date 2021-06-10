@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using EntityLayer.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,13 +21,12 @@ namespace MvcProjeKampi.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(Admin admin)
+        public ActionResult Index(AdminForLoginDto admin)
         {
             if ((adm.Login(admin)))
             {
-
-                FormsAuthentication.SetAuthCookie(admin.AdminUserName, false);
-                Session["UserName"] = admin.AdminUserName.ToString();
+                FormsAuthentication.SetAuthCookie(admin.Email, false);
+                Session["Email"] = admin.Email.ToString();
                 return RedirectToAction("Index", "AdminCategory");
             }
             else

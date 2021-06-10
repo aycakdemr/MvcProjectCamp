@@ -15,7 +15,7 @@ namespace MvcProjeKampi.Controllers
         // GET: About
         public ActionResult Index()
         {
-            var value = abm.GetList();
+            var value = abm.GetListStatusTrue();
             return View(value);
         }
         [HttpGet]
@@ -33,5 +33,20 @@ namespace MvcProjeKampi.Controllers
         {
             return PartialView();
         }
+        public ActionResult ChangeStatus(int id)
+        {
+            var value = abm.GetById(id);
+            if (value.Status)
+            {
+                value.Status = false;
+            }
+            else
+            {
+                value.Status = true;
+            }
+            abm.AboutUpdate(value);
+            return RedirectToAction("Index");
+        }
+
     }
 }

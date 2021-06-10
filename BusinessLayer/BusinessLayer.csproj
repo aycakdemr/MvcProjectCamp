@@ -45,7 +45,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAbilityService.cs" />
     <Compile Include="Abstract\IAboutService.cs" />
     <Compile Include="Abstract\IAdminService.cs" />
     <Compile Include="Abstract\ICategoryService.cs" />
@@ -62,7 +65,9 @@
     <Compile Include="Abstract\IHeadingService.cs" />
     <Compile Include="Abstract\IImageService.cs" />
     <Compile Include="Abstract\IMessageService.cs" />
+    <Compile Include="Abstract\IUserService.cs" />
     <Compile Include="Abstract\IWriterService.cs" />
+    <Compile Include="Concrete\AbilityManager.cs" />
     <Compile Include="Concrete\AboutManager.cs" />
     <Compile Include="Concrete\AdminManager.cs" />
     <Compile Include="Concrete\CategoryManager.cs" />
@@ -71,8 +76,11 @@
     <Compile Include="Concrete\HeadingManager.cs" />
     <Compile Include="Concrete\ImageManager.cs" />
     <Compile Include="Concrete\MessageManager.cs" />
+    <Compile Include="Concrete\UserManager.cs" />
     <Compile Include="Concrete\WriterManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roles\AdminRoleProvider.cs" />
+    <Compile Include="Security\Hashing\HashingHelper.cs" />
     <Compile Include="ValidationRules\CategoryValidator.cs" />
     <Compile Include="ValidationRules\ContactValidator.cs" />
     <Compile Include="ValidationRules\MessageValidator.cs" />

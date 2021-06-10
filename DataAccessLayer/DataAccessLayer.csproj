@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAbilityDal.cs" />
     <Compile Include="Abstract\IAboutDal.cs" />
     <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
@@ -60,11 +61,13 @@
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IImageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\IUserDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="Concrete\Repositories\WriterRepository.cs" />
+    <Compile Include="EntityFramework\EfAbilityDal.cs" />
     <Compile Include="EntityFramework\EfAboutDal.cs" />
     <Compile Include="EntityFramework\EfAdminDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
@@ -73,6 +76,7 @@
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
     <Compile Include="EntityFramework\EfImageDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
+    <Compile Include="EntityFramework\EfUserDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202104161907092_mig1.cs" />
     <Compile Include="Migrations\202104161907092_mig1.designer.cs">
@@ -117,6 +121,22 @@
     <Compile Include="Migrations\202106081907079_mig_admin_table.cs" />
     <Compile Include="Migrations\202106081907079_mig_admin_table.designer.cs">
       <DependentUpon>202106081907079_mig_admin_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101904349_mig_message_status.cs" />
+    <Compile Include="Migrations\202106101904349_mig_message_status.designer.cs">
+      <DependentUpon>202106101904349_mig_message_status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101927149_mig_about_status.cs" />
+    <Compile Include="Migrations\202106101927149_mig_about_status.designer.cs">
+      <DependentUpon>202106101927149_mig_about_status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101953442_mig_added_hashing.cs" />
+    <Compile Include="Migrations\202106101953442_mig_added_hashing.designer.cs">
+      <DependentUpon>202106101953442_mig_added_hashing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106102031045_mig_added_ability_user.cs" />
+    <Compile Include="Migrations\202106102031045_mig_added_ability_user.designer.cs">
+      <DependentUpon>202106102031045_mig_added_ability_user.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -164,6 +184,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106081907079_mig_admin_table.resx">
       <DependentUpon>202106081907079_mig_admin_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101904349_mig_message_status.resx">
+      <DependentUpon>202106101904349_mig_message_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101927149_mig_about_status.resx">
+      <DependentUpon>202106101927149_mig_about_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101953442_mig_added_hashing.resx">
+      <DependentUpon>202106101953442_mig_added_hashing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106102031045_mig_added_ability_user.resx">
+      <DependentUpon>202106102031045_mig_added_ability_user.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Abstract;
+using BusinessLayer.Security.Hashing;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using EntityLayer.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,26 +39,46 @@ namespace BusinessLayer.Concrete
         {
             return _adminDal.Get(x => x.Id == id);
         }
-        public bool Login(Admin admin)
+        public bool Login(AdminForLoginDto admin)
         {
             var userToCheck = GetById(admin.Id);
             if (userToCheck == null)
             {
                 return false;
             }
-            if (userToCheck.AdminPassword != admin.AdminPassword)
+            if (!HashingHelper.VerifyPasswordHash(admin.Password, userToCheck.PasswordHash, userToCheck.PasswordSalt)&&
+                !HashingHelper.VerifyMailHash(admin.Email,userToCheck.AdminUserNameHash,userToCheck.AdminUserNameSalt))
             {
                 return false;
             }
+            return true;
+        }
+        public bool Register(AdminForRegisterDto adminregister, string password)
+        {
+            byte[] passwordHash, passwordSalt, mailHash ,mailSalt ;
+            HashingHelper.CreateMailHash(adminregister.Mail,out mailHash,out mailSalt);
+            HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
+            var admin = new Admin
+            {
+                AdminRole = adminregister.AdminRole,
+                PasswordHash = passwordHash,
+                PasswordSalt =passwordSalt,
+                AdminUserNameHash = mailHash,
+                AdminUserNameSalt =mailSalt,
+                UserName = adminregister.UserName
+                
+            };
+            _adminDal.Insert(admin);
             return true;
         }
         public List<Admin> GetList()
         {
             return _adminDal.List();
         }
-        public Admin GetByName(string name)
+
+        public Admin GetByName(String name)
         {
-            return _adminDal.Get(x => x.AdminUserName == name);
+            return _adminDal.Get(x => x.UserName == name);
         }
     }
 }

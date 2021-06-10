@@ -4,7 +4,10 @@
     ViewBag.Title = "Inbox";
     Layout = "~/Views/Shared/_adminLayout.cshtml";
 }
-
+@{ 
+    string color = "";
+    string read = "";
+}
 <!DOCTYPE html>
 <html>
 
@@ -31,7 +34,7 @@
             <div class="col-md-9">
                 <div class="card card-primary card-outline">
                     <div class="card-header">
-                        <h3 class="card-title">Gönderilen Mesajlar</h3>
+                        <h3 class="card-title">Gelen Mesajlar - <mark>Okunmamış Mesajlar: @ViewBag.d1</mark></h3>
                         <div class="card-tools">
                             <div class="input-group input-group-sm">
                                 <input type="text" class="form-control" placeholder="Search Mail">
@@ -73,7 +76,16 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-
+                                        if (item.Status == false)
+                                        {
+                                            color = "danger";
+                                            read = "Okunmadı";
+                                        }
+                                        if (item.Status == true)
+                                        {
+                                            color = "primary";
+                                            read = "Okundu";
+                                        }
                                         <tr>
                                             <td>
                                                 <div class="icheck-primary">
@@ -88,6 +100,13 @@
                                             </td>
                                             <td class="mailbox-attachment"></td>
                                             <td class="mailbox-date"> @(((DateTime)item.MessageDate).ToString("dd-MMM-yyyy"))</td>
+
+                                            <td>
+                                                <a class="btn btn-@color btn-sm">
+
+                                                    @read
+                                                </a>
+                                            </td>
                                         </tr>
                                     }
                                 </tbody>

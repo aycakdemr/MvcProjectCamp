@@ -4,25 +4,39 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_adminLayout.cshtml";
 }
-
+@{ string color = "";
+    string button = "";
+}
 <h2>Hakkımda veri listesi</h2>
 
 <table class="table table-bordered">
     <tr>
         <th>Id</th>
         <th>Hakkımda Başlığı</th>
-        <th>Aktif Yap</th>
-        <th>Pasif Yap</th>
+        <th>Hakkımda Başlığı2</th>
+        <th>Hakkımda Fotoğraf1</th>
+        <th>Hakkımda Fotoğraf2</th>
+        <th>Durum Değiştir</th>
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.AboutId</td>
-            <td>@item.AboutId</td>
-            <td><a href="#" class="btn btn-warning">Aktif Yap</a></td>
-            <td><a href="#" class="btn btn-warning">Pasif Yap</a></td>
-        </tr>
+        if (item.Status == false)
+        {
+            button = "Aktif Yap";
+        }
+        if (item.Status == true)
+        {
+            button = "Pasif Yap";
+        }
+<tr>
+    <td>@item.AboutId</td>
+    <td>@item.AboutDetails1</td>
+    <td>@item.AboutDetails2</td>
+    <td>@item.AboutImage1</td>
+    <td>@item.AboutImage2</td>
+    <td><a href="/About/ChangeStatus/@item.AboutId" class="btn btn-warning">@button</a></td>
+</tr>
     }
 </table>
 
-@Html.Action("AboutPartial","About")
+@Html.Action("AboutPartial", "About")

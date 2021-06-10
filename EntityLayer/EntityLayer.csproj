@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\Ability.cs" />
     <Compile Include="Concrete\About.cs" />
     <Compile Include="Concrete\Admin.cs" />
     <Compile Include="Concrete\Category.cs" />
@@ -59,8 +60,12 @@
     <Compile Include="Concrete\Heading.cs" />
     <Compile Include="Concrete\Image.cs" />
     <Compile Include="Concrete\Message.cs" />
+    <Compile Include="Concrete\User.cs" />
     <Compile Include="Concrete\Writer.cs" />
+    <Compile Include="Dto\AbilityUserDto.cs" />
     <Compile Include="Dto\CategoryHeadingDto.cs" />
+    <Compile Include="Dto\AdminForLoginDto.cs" />
+    <Compile Include="Dto\AdminForRegisterDto.cs" />
     <Compile Include="Dto\Statistics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

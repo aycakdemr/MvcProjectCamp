@@ -11,8 +11,11 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int Id { get; set; }
-        public String AdminUserName { get; set; }
-        public String AdminPassword { get; set; }
+        public String UserName { get; set; }
+        public byte[] PasswordSalt { get; set; }
+        public byte[] PasswordHash { get; set; }
+        public byte[] AdminUserNameSalt { get; set; }
+        public byte[] AdminUserNameHash { get; set; }
         public String AdminRole { get; set; }
     }
 }

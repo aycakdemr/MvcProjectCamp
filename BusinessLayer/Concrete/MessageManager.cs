@@ -33,17 +33,27 @@ namespace BusinessLayer.Concrete
             return _messageDal.List(x => x.SenderMail == "admin@gmail.com");
         }
 
+        public List<Message> GetListStatusFalse()
+        {
+            return _messageDal.List(x => x.Status == false);
+        }
+
+        public List<Message> GetListStatusTrue()
+        {
+            return _messageDal.List(x => x.Status == true);
+        }
+
         public void MessageAdd(Message message)
         {
              _messageDal.Insert(message);
         }
 
-        public void WriterDelete(Message message)
+        public void MessageDelete(Message message)
         {
             _messageDal.Delete(message);
         }
 
-        public void WriterUpdate(Message message)
+        public void MessageUpdate(Message message)
         {
             _messageDal.Update(message);
         }

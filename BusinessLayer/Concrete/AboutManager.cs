@@ -42,5 +42,15 @@ namespace BusinessLayer.Concrete
         {
             return _aboutDal.List();
         }
+
+        public List<About> GetListStatusFalse()
+        {
+            return _aboutDal.List(x=>x.Status == false);
+        }
+
+        public List<About> GetListStatusTrue()
+        {
+            return _aboutDal.List(x => x.Status == true);
+        }
     }
 }

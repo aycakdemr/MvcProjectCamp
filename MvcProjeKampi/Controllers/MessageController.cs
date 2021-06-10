@@ -16,6 +16,8 @@ namespace MvcProjeKampi.Controllers
         public ActionResult Inbox()
         {
             var value = mm.GetListInbox();
+            var count = mm.GetListStatusFalse().Count();
+            ViewBag.d1 = count;
             return View(value) ;
         }
         public ActionResult Sendbox()
@@ -26,6 +28,8 @@ namespace MvcProjeKampi.Controllers
         public ActionResult GetInBoxMessagetDetails(int id)
         {
             var value = mm.GetById(id);
+            value.Status = true;
+            mm.MessageUpdate(value);
             return View(value);
         }
         public ActionResult GetSendBoxMessagetDetails(int id)

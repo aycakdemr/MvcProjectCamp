@@ -132,6 +132,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AbilitiesController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -2415,6 +2416,16 @@
     <Content Include="AdminLTE-3.0.4\login-form-19\scss\bootstrap\_utilities.scss" />
     <Content Include="AdminLTE-3.0.4\login-form-19\scss\bootstrap\_variables.scss" />
     <Content Include="AdminLTE-3.0.4\login-form-19\scss\style.scss" />
+    <Content Include="abilitycard\css\style.css" />
+    <Content Include="abilitycard\images\5.jpg" />
+    <Content Include="abilitycard\images\img1.jpg" />
+    <Content Include="abilitycard\images\sprite.png" />
+    <Content Include="abilitycard\index.html" />
+    <Content Include="abilitycard\js\bars.js" />
+    <Content Include="abilitycard\js\easyResponsiveTabs.js" />
+    <Content Include="abilitycard\js\jquery-1.11.1.min.js" />
+    <Content Include="abilitycard\js\jquery.circlechart.js" />
+    <Content Include="abilitycard\w3layouts-License.txt" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2471,6 +2482,7 @@
     <Content Include="Views\ErrorPage\Page404.cshtml" />
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Abilities\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
