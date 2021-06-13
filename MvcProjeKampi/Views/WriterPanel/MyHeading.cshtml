@@ -1,15 +1,9 @@
 ﻿@using EntityLayer.Concrete
 @model List<Heading>
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_adminLayout.cshtml";
-
+    ViewBag.Title = "MyHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
-@{ string color = "";
-    string deletebutton = "";
-    }
-
-
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +13,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    
+
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -52,9 +46,7 @@
                             <th style="width: 30%">
                                 Oluşturan Yazar
                             </th>
-                            <th style="width: 10%">
-                                Durum
-                            </th>
+                            
                             <th style="width: 8%" class="text-center">
                                 Kategori
                             </th>
@@ -65,34 +57,11 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            if (item.Category.CategoryName == "Tiyatro")
-                            {
-                                color = "badge badge-success";
-                            }
-                            if (item.Category.CategoryName == "Spor")
-                            {
-                                color = "badge badge-warning";
-                            }
-                            if (item.Category.CategoryName == "Dizi")
-                            {
-                                color = "badge badge-info";
-                            }
-                            if (item.Category.CategoryName == "Film")
-                            {
-                                color = "badge badge-secondary";
-                            }
-                            if(item.HeadingStatus == false)
-                            {
-                                deletebutton = "Aktif Yap";
-                            }
-                            if (item.HeadingStatus == true)
-                            {
-                                deletebutton = "Pasif Yap";
-                            }
+                            
 
                             <tr>
                                 <td>
-                                   @item.HeadingId
+                                    @item.HeadingId
                                 </td>
                                 <td>
                                     <a>
@@ -110,9 +79,9 @@
                                         </li>
                                     </ul>
                                 </td>
-                                <td>@item.HeadingStatus</td>
+                                
                                 <td class="project-state">
-                                    <span class="@color">@item.Category.CategoryName</span>
+                                    <span class="primary">@item.Category.CategoryName</span>
                                 </td>
                                 <td class="project-actions text-right">
                                     <a class="btn btn-primary btn-sm" href="/Content/ContentByHeading/@item.HeadingId">
@@ -120,15 +89,15 @@
                                         </i>
                                         Yazılar
                                     </a>
-                                    <a class="btn btn-info btn-sm" href="/Heading/EditHeading/@item.HeadingId">
+                                    <a class="btn btn-info btn-sm" href="/WriterPanel/EditHeading/@item.HeadingId">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Düzenle
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingId">
+                                    <a class="btn btn-danger btn-sm" href="/WriterPanel/DeleteHeading/@item.HeadingId">
                                         <i class="fas fa-trash">
                                         </i>
-                                        @deletebutton
+                                        sil
                                     </a>
                                 </td>
                             </tr>
@@ -142,7 +111,4 @@
     </section>
 </body>
 </html>
-<a href="/Heading/AddHeading/" class="btn btn-primary">Yeni Başlık Girişi</a>
-
-
-
+<a href="/WriterPanel/NewHeading/" class="btn btn-primary">Yeni Başlık Girişi</a>

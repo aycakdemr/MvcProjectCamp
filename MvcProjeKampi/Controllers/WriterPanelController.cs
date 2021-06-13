@@ -9,19 +9,22 @@ using System.Web.Mvc;
 
 namespace MvcProjeKampi.Controllers
 {
-    public class HeadingController : Controller
+    public class WriterPanelController : Controller
     {
-        // GET: Heading
+        // GET: WriterPanel
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
-        WriterManager wm = new WriterManager(new EfWriterDal());
-        public ActionResult Index()
+        public ActionResult WriterProfile()
         {
-            var value = hm.GetList();
+            return View();
+        }
+        public ActionResult MyHeading()
+        {
+            var value = hm.GetListByWriter();
             return View(value);
         }
         [HttpGet]
-        public ActionResult AddHeading()
+        public ActionResult NewHeading()
         {
             List<SelectListItem> valueCategory = (from x in cm.GetList()
                                                   select new SelectListItem
@@ -30,22 +33,18 @@ namespace MvcProjeKampi.Controllers
                                                       Value = x.CategoryId.ToString()
                                                   }).ToList();
             ViewBag.dgr1 = valueCategory;
-            List<SelectListItem> valueWriter = (from x in wm.GetList()
-                                                  select new SelectListItem
-                                                  {
-                                                      Text = x.WriterName +" " +x.WriterSurname,
-                                                      Value = x.WriterId.ToString()
-                                                  }).ToList();
-            ViewBag.dgr2 = valueWriter;
             return View();
         }
         [HttpPost]
-        public ActionResult AddHeading(Heading heading)
+        public ActionResult NewHeading(Heading heading)
         {
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            heading.WriterId = 4;
+            heading.HeadingStatus = true;
             hm.HeadingAdd(heading);
-            return RedirectToAction("Index");
+            return RedirectToAction("MyHeading");
         }
+
         [HttpGet]
         public ActionResult EditHeading(int id)
         {
@@ -76,9 +75,9 @@ namespace MvcProjeKampi.Controllers
             {
                 value.HeadingStatus = true;
             }
-           
+
             hm.HeadingDelete(value);
-            return RedirectToAction("Index");
+            return RedirectToAction("MyHeading");
         }
     }
 }
