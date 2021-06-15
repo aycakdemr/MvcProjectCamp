@@ -67,6 +67,8 @@
     <Compile Include="Dto\AdminForLoginDto.cs" />
     <Compile Include="Dto\AdminForRegisterDto.cs" />
     <Compile Include="Dto\Statistics.cs" />
+    <Compile Include="Dto\WriterForLoginDto.cs" />
+    <Compile Include="Dto\WriterForRegisterDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

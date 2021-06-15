@@ -14,18 +14,23 @@ namespace MvcProjeKampi.Controllers
         // GET: WriterPanel
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
+        int writerid;
         public ActionResult WriterProfile()
         {
             return View();
         }
-        public ActionResult MyHeading()
+        public ActionResult MyHeading(string p)
         {
-            var value = hm.GetListByWriter();
+            p = (string)Session["Writermail"];
+             writerid = wm.GetByMail(p).WriterId;
+            var value = hm.GetListByWriter(writerid);
             return View(value);
         }
         [HttpGet]
         public ActionResult NewHeading()
         {
+            
             List<SelectListItem> valueCategory = (from x in cm.GetList()
                                                   select new SelectListItem
                                                   {
@@ -38,8 +43,10 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult NewHeading(Heading heading)
         {
+            string a = (string)Session["WriterMail"];
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            heading.WriterId = 4;
+            writerid = wm.GetByMail(a).WriterId;
+            heading.WriterId = writerid;
             heading.HeadingStatus = true;
             hm.HeadingAdd(heading);
             return RedirectToAction("MyHeading");

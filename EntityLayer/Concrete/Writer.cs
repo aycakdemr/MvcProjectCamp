@@ -22,8 +22,8 @@ namespace EntityLayer.Concrete
         [StringLength(200)]
         public string WriterMail { get; set; }
         [StringLength(200)]
-        public string WriterPassword { get; set; }
-        [StringLength(50)]
+        public byte[] PasswordSalt { get; set; }
+        public byte[] PasswordHash { get; set; }
         public string WriterTitle { get; set; }
         public bool WriterStatus { get; set; }
         

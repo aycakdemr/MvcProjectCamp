@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Abstract;
+using BusinessLayer.Security.Hashing;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using EntityLayer.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,11 +25,50 @@ namespace BusinessLayer.Concrete
             return _writerDal.Get(x => x.WriterId == id);
         }
 
+        public Writer GetByMail(string mail)
+        {
+            return _writerDal.Get(x => x.WriterMail == mail);
+        }
+
         public List<Writer> GetList()
         {
             return _writerDal.List();
         }
 
+        public bool Login(WriterForLoginDto writer)
+        {
+            var userToCheck = GetById(writer.Id);
+            if (userToCheck == null)
+            {
+                return false;
+            }
+            if (!HashingHelper.VerifyPasswordHash(writer.Password, userToCheck.PasswordHash, userToCheck.PasswordSalt)) 
+            {
+                return false;
+            }
+            return true;
+        }
+        public bool Register(WriterForRegisterDto writer, string password)
+        {
+            byte[] passwordHash, passwordSalt;
+            HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
+            var newwriter = new Writer
+            {
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                WriterImage=writer.WriterImage,
+                WriterName =writer.WriterName,
+                WriterSurname =writer.WriterSurname,
+                WriterMail =writer.Mail,
+                WriterStatus =true,
+                WriterAbout =writer.WriterAbout,
+                WriterTitle =writer.WriterTitle,
+                
+
+            };
+            _writerDal.Insert(newwriter);
+            return true;
+        }
         public void WriterAdd(Writer writer)
         {
             _writerDal.Insert(writer);
