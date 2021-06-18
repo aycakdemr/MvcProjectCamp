@@ -1,4 +1,5 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<Heading>
 @{
     Layout = null;
 }
@@ -45,83 +46,34 @@ to get the desired effect
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="~/AdminLTE-3.0.4/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
+                   
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">MVC proje kampı</a>
                     </div>
                 </div>
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
-                       
+
+                        @foreach (var item in Model)
+                        {
                             <li class="nav-item has-treeview">
-                                <a href="/AdminCategory/Index" class="nav-link">
-                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <a href="/Default/Headings/@item.HeadingId" class="nav-link">
                                     <p>
-                                        Profilim
+                                        @item.HeadingName
                                     </p>
                                 </a>
                             </li>
-                        
-                        <li class="nav-item">
-                            <a href="/WriterPanel/MyHeading" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Başlıklarım
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/WriterPanel/MyHeading" class="nav-link">
-                                <i class="nav-icon fas fa-list-alt"></i>
-                                <p>
-                                     Tüm Başlıklar
-                                </p>
-                            </a>
-                        </li>
-                        
-                        
-                        <li class="nav-item has-treeview">
-                            <a href="/Contact/Index" class="nav-link">
-                                <i class="nav-icon fas fa-edit"></i>
-                                <p>
-                                     Mesajlar
-                                </p>
-                            </a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a href="/WriterPanelContent/MyContent" class="nav-link">
-                                <i class="nav-icon fas fa-calendar-alt"></i>
-                                <p>
-                                    Yazılarım
-                                </p>
-                            </a>
-                        </li>
-                       
-                        
-                        <li class="nav-item has-treeview">
-                            <a href="/Default/Headings" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
-                                <p>
-                                    Siteye Git
-                                </p>
-                            </a>
+                        }
 
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-apple-alt"></i>
-                                <p>
-                                    Çıkış yap
-                                </p>
-                            </a>
 
-                        </li>
+
+
+
+
+
+
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -132,7 +84,7 @@ to get the desired effect
         <div class="content-wrapper">
             <!-- Main content -->
             <div class="content">
-                @RenderBody()
+                @Html.Action("Index","Default")
                 <!-- /.container-fluid -->
             </div>
             <!-- /.content -->
@@ -151,6 +103,6 @@ to get the desired effect
     <script src="~/AdminLTE-3.0.4/plugins/chart.js/Chart.min.js"></script>
     <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
     <script src="~/AdminLTE-3.0.4/dist/js/pages/dashboard3.js"></script>
-    @RenderSection("Editor", false)
+    
 </body>
 </html>
