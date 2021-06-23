@@ -53,7 +53,7 @@ namespace MvcProjeKampi.Controllers
             }
             else
             {
-                return RedirectToAction("WriterLogin");
+                return View();
             }
         }
         public ActionResult LogOut()

@@ -11,17 +11,11 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int WriterId { get; set; }
-        [StringLength(50)]
         public string WriterName { get; set; }
-        [StringLength(250)]
         public string WriterSurname { get; set; }
-        [StringLength(100)]
         public string WriterImage { get; set; }
-        [StringLength(100)]
         public string WriterAbout { get; set; }
-        [StringLength(200)]
         public string WriterMail { get; set; }
-        [StringLength(200)]
         public byte[] PasswordSalt { get; set; }
         public byte[] PasswordHash { get; set; }
         public string WriterTitle { get; set; }

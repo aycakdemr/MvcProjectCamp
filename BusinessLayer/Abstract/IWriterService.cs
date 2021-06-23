@@ -12,7 +12,7 @@ namespace BusinessLayer.Abstract
     {
         List<Writer> GetList();
         bool Login(WriterForLoginDto writer);
-        bool Register(WriterForRegisterDto writer,string password);
+        void Register(WriterForRegisterDto writer,string password);
         void WriterAdd(Writer writer);
         Writer GetById(int id);
         Writer GetByMail(string mail);

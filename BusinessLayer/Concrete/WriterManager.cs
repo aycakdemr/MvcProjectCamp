@@ -37,7 +37,7 @@ namespace BusinessLayer.Concrete
 
         public bool Login(WriterForLoginDto writer)
         {
-            var userToCheck = GetById(writer.Id);
+            var userToCheck = _writerDal.Get(x => x.WriterMail == writer.Email);
             if (userToCheck == null)
             {
                 return false;
@@ -48,7 +48,7 @@ namespace BusinessLayer.Concrete
             }
             return true;
         }
-        public bool Register(WriterForRegisterDto writer, string password)
+        public void Register(WriterForRegisterDto writer, string password)
         {
             byte[] passwordHash, passwordSalt;
             HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
@@ -64,10 +64,8 @@ namespace BusinessLayer.Concrete
                 WriterAbout =writer.WriterAbout,
                 WriterTitle =writer.WriterTitle,
                 
-
             };
             _writerDal.Insert(newwriter);
-            return true;
         }
         public void WriterAdd(Writer writer)
         {

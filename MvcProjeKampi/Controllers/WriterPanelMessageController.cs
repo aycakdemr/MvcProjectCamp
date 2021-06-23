@@ -12,17 +12,20 @@ namespace MvcProjeKampi.Controllers
     public class WriterPanelMessageController : Controller
     {
         MessageManager mm = new MessageManager(new EfMessageDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
         // GET: WriterPanelMessage
         public ActionResult Inbox()
         {
-            var value = mm.GetListInbox();
+           string p = (string)Session["Writermail"];
+            var value = mm.GetListInbox(p);
             var count = mm.GetListStatusFalse().Count();
             ViewBag.d1 = count;
             return View(value);
         }
         public ActionResult Sendbox()
         {
-            var value = mm.GetListSendInbox();
+            string p = (string)Session["Writermail"];
+            var value = mm.GetListSendInbox(p);
             return View(value);
         }
         public PartialViewResult MessageListMenu()
@@ -50,7 +53,8 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult NewMessage(Message message)
         {
-            message.SenderMail = "deneme@gmail.com";
+            string p = (string)Session["Writermail"];
+            message.SenderMail = p;
             message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             mm.MessageAdd(message);
             return View();

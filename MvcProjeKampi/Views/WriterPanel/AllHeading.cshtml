@@ -1,5 +1,7 @@
 ﻿@using EntityLayer.Concrete
-@model List<Heading>
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Heading>
 @{
     ViewBag.Title = "AllHeading";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
@@ -110,3 +112,11 @@
 </html>
 
 
+@Html.PagedListPager((IPagedList)Model,sayfa=>
+Url.Action("AllHeading",new {sayfa }),new PagedListRenderOptions {
+
+    LiElementClasses = new List<string>
+    {
+        "page-link" 
+    }
+})

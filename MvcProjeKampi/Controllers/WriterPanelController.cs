@@ -6,6 +6,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
+using FluentValidation.Results;
+using BusinessLayer.ValidationRules;
 
 namespace MvcProjeKampi.Controllers
 {
@@ -15,9 +19,32 @@ namespace MvcProjeKampi.Controllers
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
+        WriterValidator wv = new WriterValidator();
         int writerid;
-        public ActionResult WriterProfile()
+        [HttpGet]
+        public ActionResult WriterProfile(int id)
         {
+            string p = (string)Session["Writermail"];
+            writerid = wm.GetByMail(p).WriterId;
+            var value = wm.GetById(id);
+            return View(value);
+        }
+        [HttpPost]
+        public ActionResult WriterProfile(Writer writer)
+        {
+            ValidationResult results = wv.Validate(writer);
+            if (results.IsValid)
+            {
+                wm.WriterUpdate(writer);
+                return RedirectToAction("AllHeading","WriterPanel");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
             return View();
         }
         public ActionResult MyHeading(string p)
@@ -86,9 +113,9 @@ namespace MvcProjeKampi.Controllers
             hm.HeadingDelete(value);
             return RedirectToAction("MyHeading");
         }
-        public ActionResult AllHeading()
+        public ActionResult AllHeading(int sayfa = 1)
         {
-            var he = hm.GetList();
+            var he = hm.GetList().ToPagedList(sayfa,4);
             return View(he);
         }
     }

@@ -142,6 +142,10 @@
     <Compile Include="Migrations\202106151913333_mig_writer_password.designer.cs">
       <DependentUpon>202106151913333_mig_writer_password.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106231553432_mig_last_updates.cs" />
+    <Compile Include="Migrations\202106231553432_mig_last_updates.designer.cs">
+      <DependentUpon>202106231553432_mig_last_updates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -203,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106151913333_mig_writer_password.resx">
       <DependentUpon>202106151913333_mig_writer_password.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106231553432_mig_last_updates.resx">
+      <DependentUpon>202106231553432_mig_last_updates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
