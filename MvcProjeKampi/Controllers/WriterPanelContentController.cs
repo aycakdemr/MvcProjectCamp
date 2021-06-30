@@ -21,7 +21,7 @@ namespace MvcProjeKampi.Controllers
             p = (string)Session["Writermail"];
             var writerinfo = wm.GetByMail(p);
             id = writerinfo.WriterId;
-            var value = cm.GetListByHeadingId(id);
+            var value = cm.GetListByWriterId(id);
             return View(value);
         }
         [HttpGet]

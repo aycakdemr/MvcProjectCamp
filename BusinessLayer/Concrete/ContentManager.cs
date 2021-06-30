@@ -43,6 +43,16 @@ namespace BusinessLayer.Concrete
             return _contentDal.List();
         }
 
+        public List<Content> GetList(string p)
+        {
+            var values = _contentDal.List(x => x.ContentValue.Contains(p));
+            if(p == null)
+            {
+                return GetList();
+            }
+            return values;
+        }
+
         public List<Content> GetListByHeadingId(int id)
         {
             return _contentDal.List(x => x.HeadingId == id);

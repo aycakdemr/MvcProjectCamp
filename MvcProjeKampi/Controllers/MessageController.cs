@@ -13,16 +13,16 @@ namespace MvcProjeKampi.Controllers
     {
         MessageManager mm = new MessageManager(new EfMessageDal());
         // GET: Message
-        public ActionResult Inbox()
+        public ActionResult Inbox(String p)
         {
-            var value = mm.GetListInbox();
+            var value = mm.GetListInbox(p);
             var count = mm.GetListStatusFalse().Count();
             ViewBag.d1 = count;
             return View(value) ;
         }
-        public ActionResult Sendbox()
+        public ActionResult Sendbox(String p)
         {
-            var value = mm.GetListSendInbox();
+            var value = mm.GetListSendInbox(p);
             return View(value);
         }
         public ActionResult GetInBoxMessagetDetails(int id)
