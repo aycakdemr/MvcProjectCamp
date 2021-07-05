@@ -20,6 +20,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<Image> Images { get; set; }
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Ability> Abilities { get; set; }
+        public DbSet<AdminRole> AdminRoles { get; set; }
         public DbSet<User> Users { get; set; }
 
 

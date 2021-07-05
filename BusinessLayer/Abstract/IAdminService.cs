@@ -12,9 +12,11 @@ namespace BusinessLayer.Abstract
     {
         List<Admin> GetList();
         bool Login(AdminForLoginDto admin);
-        void AdminAdd(Admin admin);
+        void AdminAdd(AdminForRegisterDto adminregister, string password);
         Admin GetById(int id);
         Admin GetByName(String name);
+        Admin GetByMail(String mail);
+        void ChangeRole(int id, String role);
         void AdminDelete(Admin admin);
         void AdminUpdate(Admin admin);
     }

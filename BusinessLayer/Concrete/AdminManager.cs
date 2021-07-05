@@ -20,8 +20,23 @@ namespace BusinessLayer.Concrete
             _adminDal = adminDal;
         }
 
-        public void AdminAdd(Admin admin)
+        public void AdminAdd(AdminForRegisterDto adminregister, string password)
         {
+            byte[] passwordHash, passwordSalt, mailHash, mailSalt;
+            HashingHelper.CreateMailHash(adminregister.Mail, out mailHash, out mailSalt);
+            HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
+            var admin = new Admin
+            {
+                Role = adminregister.AdminRole,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                AdminUserNameHash = mailHash,
+                AdminUserNameSalt = mailSalt,
+                UserName = adminregister.UserName,
+                Status = true,
+                Mail = adminregister.Mail
+
+            };
             _adminDal.Insert(admin);
         }
 
@@ -32,6 +47,20 @@ namespace BusinessLayer.Concrete
 
         public void AdminUpdate(Admin admin)
         {
+            //byte[] passwordHash, passwordSalt, mailHash, mailSalt;
+            //HashingHelper.CreateMailHash(adminregister.Mail, out mailHash, out mailSalt);
+            //HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
+            //var admin = new Admin
+            //{
+            //    Role = adminregister.AdminRole,
+            //    PasswordHash = passwordHash,
+            //    PasswordSalt = passwordSalt,
+            //    AdminUserNameHash = mailHash,
+            //    AdminUserNameSalt = mailSalt,
+            //    UserName = adminregister.UserName,
+            //    Status = true
+
+            //};
             _adminDal.Update(admin);
         }
 
@@ -41,7 +70,7 @@ namespace BusinessLayer.Concrete
         }
         public bool Login(AdminForLoginDto admin)
         {
-            var userToCheck = GetById(admin.Id);
+            var userToCheck = GetByMail(admin.Email);
             if (userToCheck == null)
             {
                 return false;
@@ -60,25 +89,37 @@ namespace BusinessLayer.Concrete
             HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
             var admin = new Admin
             {
-                AdminRole = adminregister.AdminRole,
+                Role= adminregister.AdminRole,
                 PasswordHash = passwordHash,
                 PasswordSalt =passwordSalt,
                 AdminUserNameHash = mailHash,
                 AdminUserNameSalt =mailSalt,
-                UserName = adminregister.UserName
-                
+                UserName = adminregister.UserName,
+                Status = true,
+                Mail = adminregister.Mail
+
             };
             _adminDal.Insert(admin);
             return true;
         }
         public List<Admin> GetList()
         {
-            return _adminDal.List();
+            return _adminDal.List(x=>x.Status ==true);
         }
 
         public Admin GetByName(String name)
         {
             return _adminDal.Get(x => x.UserName == name);
+        }
+        public Admin GetByMail(String mail)
+        {
+            return _adminDal.Get(x => x.Mail == mail);
+        }
+        public void ChangeRole(int id, string role)
+        {
+            var value = _adminDal.Get(x => x.Id == id);
+            value.Role = role;
+            _adminDal.Update(value);
         }
     }
 }

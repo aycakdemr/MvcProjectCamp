@@ -8,12 +8,14 @@
 <h1>Yeni Kategori Ekleme Sayfası</h1>
 
 <br />
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
 
 @using (Html.BeginForm("AddCategory", "AdminCategory", FormMethod.Post))
 {
     <div class="form-group">
         @Html.Label("Kategori Adı")
-        @Html.TextBoxFor(x => x.CategoryName,new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.CategoryName)
         <br /><br />
         @Html.Label("Açıklamayı yazınız")
@@ -21,6 +23,12 @@
         @Html.TextAreaFor(x => x.CategoryDescription)
         @Html.ValidationMessageFor(x => x.CategoryDescription)
         <br /><br />
-        <button class="btn btn-danger">Kaydet</button>
+        <button id="btn3" class="btn btn-danger">Kaydet</button>
     </div>
 }
+<script>
+    $('#btn3').click(function () {
+        swal("Tebrikler!", "Ekleme İşlemi Başarılı!", "success");
+
+    })
+</script>

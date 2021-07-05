@@ -12,10 +12,12 @@ namespace EntityLayer.Concrete
         [Key]
         public int Id { get; set; }
         public String UserName { get; set; }
+        public String Mail { get; set; }
         public byte[] PasswordSalt { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] AdminUserNameSalt { get; set; }
         public byte[] AdminUserNameHash { get; set; }
-        public String AdminRole { get; set; }
+        public String Role { get; set; }
+        public bool Status { get; set; }
     }
 }

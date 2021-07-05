@@ -44,7 +44,7 @@ namespace MvcProjeKampi.Roles
         public override string[] GetRolesForUser(string username)
         {
             var value = adminManager.GetByName(username);
-            return new string[] { value.AdminRole };
+            return new string[] { value.Role };
         }
 
         public override string[] GetUsersInRole(string roleName)

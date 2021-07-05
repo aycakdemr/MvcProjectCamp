@@ -1,0 +1,20 @@
+﻿@model EntityLayer.Concrete.Admin
+@{
+    ViewBag.Title = "ChangeRole";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+@using (Html.BeginForm("ChangeRole", "Authorization", FormMethod.Post))
+{
+<div class="form-group">
+
+    <br /><br />
+    @Html.Label("Admin Rolü")
+    @Html.HiddenFor(x => x.Id, new { @class = "form-control" })
+
+    @Html.TextBoxFor(x => x.Role, new { @class = "form-control" })
+
+
+    <br />
+    <button class="btn btn-success">Rol Değiştir</button>
+</div>
+}

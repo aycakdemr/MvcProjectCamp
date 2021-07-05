@@ -54,6 +54,7 @@
     <Compile Include="Abstract\IAbilityDal.cs" />
     <Compile Include="Abstract\IAboutDal.cs" />
     <Compile Include="Abstract\IAdminDal.cs" />
+    <Compile Include="Abstract\IAdminRoleDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="EntityFramework\EfAbilityDal.cs" />
     <Compile Include="EntityFramework\EfAboutDal.cs" />
     <Compile Include="EntityFramework\EfAdminDal.cs" />
+    <Compile Include="EntityFramework\EfAdminRoleDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
@@ -118,10 +120,6 @@
     <Compile Include="Migrations\202106081845246_mig_add_image.designer.cs">
       <DependentUpon>202106081845246_mig_add_image.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106081907079_mig_admin_table.cs" />
-    <Compile Include="Migrations\202106081907079_mig_admin_table.designer.cs">
-      <DependentUpon>202106081907079_mig_admin_table.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202106101904349_mig_message_status.cs" />
     <Compile Include="Migrations\202106101904349_mig_message_status.designer.cs">
       <DependentUpon>202106101904349_mig_message_status.cs</DependentUpon>
@@ -145,6 +143,26 @@
     <Compile Include="Migrations\202106231553432_mig_last_updates.cs" />
     <Compile Include="Migrations\202106231553432_mig_last_updates.designer.cs">
       <DependentUpon>202106231553432_mig_last_updates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107051048459_mig_add_adminroles_table.cs" />
+    <Compile Include="Migrations\202107051048459_mig_add_adminroles_table.designer.cs">
+      <DependentUpon>202107051048459_mig_add_adminroles_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107051121018_mig_admin_table.cs" />
+    <Compile Include="Migrations\202107051121018_mig_admin_table.designer.cs">
+      <DependentUpon>202107051121018_mig_admin_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107051204330_mig_update_admin.cs" />
+    <Compile Include="Migrations\202107051204330_mig_update_admin.designer.cs">
+      <DependentUpon>202107051204330_mig_update_admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107051213426_mig_update_admin2.cs" />
+    <Compile Include="Migrations\202107051213426_mig_update_admin2.designer.cs">
+      <DependentUpon>202107051213426_mig_update_admin2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107051247576_mig_update_admin3.cs" />
+    <Compile Include="Migrations\202107051247576_mig_update_admin3.designer.cs">
+      <DependentUpon>202107051247576_mig_update_admin3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -190,9 +208,6 @@
     <EmbeddedResource Include="Migrations\202106081845246_mig_add_image.resx">
       <DependentUpon>202106081845246_mig_add_image.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106081907079_mig_admin_table.resx">
-      <DependentUpon>202106081907079_mig_admin_table.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106101904349_mig_message_status.resx">
       <DependentUpon>202106101904349_mig_message_status.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +225,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106231553432_mig_last_updates.resx">
       <DependentUpon>202106231553432_mig_last_updates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107051048459_mig_add_adminroles_table.resx">
+      <DependentUpon>202107051048459_mig_add_adminroles_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107051121018_mig_admin_table.resx">
+      <DependentUpon>202107051121018_mig_admin_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107051204330_mig_update_admin.resx">
+      <DependentUpon>202107051204330_mig_update_admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107051213426_mig_update_admin2.resx">
+      <DependentUpon>202107051213426_mig_update_admin2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107051247576_mig_update_admin3.resx">
+      <DependentUpon>202107051247576_mig_update_admin3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

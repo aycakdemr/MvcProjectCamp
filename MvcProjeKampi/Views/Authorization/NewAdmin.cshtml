@@ -1,0 +1,27 @@
+﻿@model EntityLayer.Dto.AdminForRegisterDto
+
+@{
+    ViewBag.Title = "NewAdmin";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+@using (Html.BeginForm("NewAdmin", "Authorization", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Admin Adı")
+    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+    <br /><br />
+    @Html.Label("Admin Rolü")
+    @Html.DropDownListFor(x => x.Id, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+
+    <br /><br />
+    @Html.Label("Admin Mail")
+    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+    <br /><br />
+    @Html.Label("Admin Password")
+    @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+    <br />
+    <br /><br />
+    <button id="btn3" class="btn btn-danger">Kaydet</button>
+</div>
+}
