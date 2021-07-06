@@ -22,11 +22,11 @@ namespace MvcProjeKampi.Controllers
         WriterValidator wv = new WriterValidator();
         int writerid;
         [HttpGet]
-        public ActionResult WriterProfile(int id)
+        public ActionResult WriterProfile()
         {
             string p = (string)Session["Writermail"];
             writerid = wm.GetByMail(p).WriterId;
-            var value = wm.GetById(id);
+            var value = wm.GetById(writerid);
             return View(value);
         }
         [HttpPost]

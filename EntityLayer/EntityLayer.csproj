@@ -64,9 +64,12 @@
     <Compile Include="Concrete\User.cs" />
     <Compile Include="Concrete\Writer.cs" />
     <Compile Include="Dto\AbilityUserDto.cs" />
+    <Compile Include="Dto\CategoryChartDto.cs" />
     <Compile Include="Dto\CategoryHeadingDto.cs" />
     <Compile Include="Dto\AdminForLoginDto.cs" />
     <Compile Include="Dto\AdminForRegisterDto.cs" />
+    <Compile Include="Dto\ContentChartDto.cs" />
+    <Compile Include="Dto\HeadingChartDto.cs" />
     <Compile Include="Dto\Statistics.cs" />
     <Compile Include="Dto\WriterForLoginDto.cs" />
     <Compile Include="Dto\WriterForRegisterDto.cs" />

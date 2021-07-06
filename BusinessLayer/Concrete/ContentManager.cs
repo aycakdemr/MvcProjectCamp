@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using EntityLayer.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,21 @@ namespace BusinessLayer.Concrete
         public void ContentAdd(Content content)
         {
             _contentDal.Insert(content);
+        }
+
+        public List<ContentChartDto> ContentChart()
+        {
+            List<ContentChartDto> chd = new List<ContentChartDto>();
+            foreach (var item in GetList())
+            {
+                chd.Add(new ContentChartDto()
+                {
+
+                    ContentName = item.ContentValue,
+                    ContentCount = GetList().Count
+                });
+            }
+            return chd;
         }
 
         public void ContentDelete(Content content)

@@ -2726,11 +2726,14 @@
     <Content Include="Views\Authorization\Index.cshtml" />
     <Content Include="Views\Authorization\NewAdmin.cshtml" />
     <Content Include="Views\Authorization\ChangeRole.cshtml" />
+    <Content Include="Views\Chart\Index.cshtml" />
+    <Content Include="Views\Chart\IndexForHeading.cshtml" />
+    <Content Include="Views\Chart\IndexForContent.cshtml" />
+    <Content Include="Views\Writer\GetListByWriter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Chart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -14,6 +14,7 @@ namespace MvcProjeKampi.Controllers
     public class WriterController : Controller
     {
         WriterManager writerManager = new WriterManager(new EfWriterDal());
+        HeadingManager hm = new HeadingManager(new EfHeadingDal());
         WriterValidator wv = new WriterValidator();
         // GET: Writer
         public ActionResult Index()
@@ -71,6 +72,12 @@ namespace MvcProjeKampi.Controllers
                 }
             }
             return View();
+        }
+
+        public ActionResult GetListByWriter(int id)
+        {
+            var values = hm.GetListByWriter(id);
+            return View(values);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using EntityLayer.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,6 +75,21 @@ namespace BusinessLayer.Concrete
         public List<Heading> GetListByWriter(int id)
         {
             return _headingDal.List(x => x.WriterId == id);
+        }
+
+        public List<HeadingChartDto> HeadingChart()
+        {
+            List<HeadingChartDto> chd = new List<HeadingChartDto>();
+            foreach (var item in GetList())
+            {
+                chd.Add(new HeadingChartDto()
+                {
+
+                    HeadingName = item.HeadingName,
+                    HeadingCount = GetList().Count
+                });
+            }
+            return chd;
         }
     }
 }

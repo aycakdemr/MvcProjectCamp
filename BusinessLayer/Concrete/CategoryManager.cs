@@ -2,6 +2,7 @@
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete.Repositories;
 using EntityLayer.Concrete;
+using EntityLayer.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,21 @@ namespace BusinessLayer.Concrete
         {
 
             _categoryDal.Insert(category);
+        }
+
+        public List<CategoryChartDto> CategoryChartList()
+        {
+            List<CategoryChartDto> chd = new List<CategoryChartDto>();
+            foreach (var item in GetList())
+            {
+                chd.Add(new CategoryChartDto()
+                {
+
+                    CategoryName = item.CategoryName,
+                    CategoryCount = GetList().Count
+                }) ;
+            }
+            return chd;
         }
 
         public void CategoryDelete(Category category)

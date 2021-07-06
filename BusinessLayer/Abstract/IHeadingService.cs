@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete;
+using EntityLayer.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace BusinessLayer.Abstract
     {
         List<Heading> GetList();
         List<Heading> GetListByWriter(int id);
+
+        List<HeadingChartDto> HeadingChart();
         void HeadingAdd(Heading heading);
         Heading GetById(int id);
         Heading GetByName(string name);
