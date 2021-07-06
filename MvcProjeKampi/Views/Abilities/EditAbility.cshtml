@@ -1,0 +1,24 @@
+﻿@model EntityLayer.Concrete.Ability
+@{
+    Layout = null;
+}
+
+<h2>Yetenek Güncelleme Sayfası</h2>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<container>
+    @using (Html.BeginForm("EditAbility", "Abilities", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.HiddenFor(x => x.Id, new { @class = "form-control" })
+            <br />
+            @Html.Label("Yetenek Adı");
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+            <br />
+            @Html.Label("Yetenek Derecesi");
+            @Html.TextBoxFor(x => x.Degree, new { @class = "form-control" })
+            <br />
+
+            <button class="btn btn-success">Güncelle</button>
+
+        </div>
+    }</container>

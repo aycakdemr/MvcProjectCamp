@@ -31,66 +31,68 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!--ResponsiveTabs-->
     <script src="/abilitycard/js/easyResponsiveTabs.js" type="text/javascript"></script>
     <script type="text/javascript">
-	$(document).ready(function () {
-		$('#horizontalTab').easyResponsiveTabs({
-			type: 'default', //Types: default, vertical, accordion
-			width: 'auto', //auto or any width like 600px
-			fit: true   // 100% fit in a container
-		});
-	});
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion
+                width: 'auto', //auto or any width like 600px
+                fit: true   // 100% fit in a container
+            });
+        });
     </script>
     <!--//ResponsiveTabs-->
 </head>
 <body>
     <!-- main -->
-    
-        <div class="main">
-            <h1>Yeteneklerim Sayfası</h1>
-            <div class="main-info w3l">
 
-                <div class="main-row">
+    <div class="main">
+        <h1>Yeteneklerim Sayfası</h1>
+        <div class="main-info w3l">
+
+            <div class="main-row">
 
 
 
-                    <!-- main-row-one -->
-                    <div class="profile-grid logo wthree">
-                        <img width="100" src="https://cdn0.iconfinder.com/data/icons/men-and-women-avatars-different-facial-expressions/283/female-134-512.png" alt="">
-                        <h2>@ViewBag.d1 @ViewBag.d2</h2>
-                        
-                        <p>@ViewBag.d3</p>
+                <!-- main-row-one -->
+                <div class="profile-grid logo wthree">
+                    <img width="100" src="https://cdn0.iconfinder.com/data/icons/men-and-women-avatars-different-facial-expressions/283/female-134-512.png" alt="">
+                    <h2>@ViewBag.d1 @ViewBag.d2</h2>
 
+                    <p>@ViewBag.d3</p>
+
+                </div>
+                <h3 class="title">Skills</h3>
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-6 skills-right bar_group">
+
+                        <div class='bar_group__bar thin' label='@item.AbilityName; @item.Degree%' value='200'></div>
                     </div>
-                    <h3 class="title">Skills</h3>
-                    @foreach (var item in Model)
-                    {
-                        <div class="col-md-6 skills-right bar_group">
-
-                            <div class='bar_group__bar thin' label='@item.AbilityName; @item.Degree%' value='200'></div>
-
-                        </div>
-                    }
-                        <!--bar-js-->
-                        <script src="/abilitycard/js/bars.js"></script>
-                        <div class="social-icons agileits">
-                            <ul>
-                                <li><a href="#"></a></li>
-                                <li><a href="#" class="fb"></a></li>
-                                <li><a href="#" class="be"></a></li>
-                                <li><a href="#" class="gg"></a></li>
-                            </ul>
-                        </div>
-                        <div class="clear"> </div>
-
-                    </div>
-               
+                }
+                <!--bar-js-->
+                <a href="/Abilities/NewAbility" class="title">Yeni Yetenek Ekle</a>
+                <a href="/Abilities/AllAbility" class="title">Sayfayı Düzenle</a>
+                <script src="/abilitycard/js/bars.js"></script>
+                <div class="social-icons agileits">
+                    <ul>
+                        <li><a href="#"></a></li>
+                        <li><a href="#" class="fb"></a></li>
+                        <li><a href="#" class="be"></a></li>
+                        <li><a href="#" class="gg"></a></li>
+                    </ul>
+                </div>
+                <div class="clear"> </div>
             </div>
-            <!-- copyright -->
-            <div class="copyright">
-                <p> © 2016 Skills Profile Widget . All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts.</a></p>
-            </div>
-            <!-- //copyright -->
+
         </div>
-    
-        <!-- main -->
-    </body>
+        <!-- copyright -->
+        <div class="copyright">
+            <p> © 2016 Skills Profile Widget . All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts.</a></p>
+        </div>
+        <!-- //copyright -->
+    </div>
+
+    <!-- main -->
+</body>
 </html>
+
+

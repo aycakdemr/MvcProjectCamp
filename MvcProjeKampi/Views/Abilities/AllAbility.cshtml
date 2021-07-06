@@ -1,0 +1,35 @@
+﻿@using EntityLayer.Concrete
+@model List<Ability>
+@{
+    Layout = null;
+}
+
+<br />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<container>
+    <table class="table table-striped">
+        <tr>
+            <th>#</th>
+            <th>Yetenek Adı</th>
+            <th>Yetenek Derecesi</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+
+
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.Id</th>
+                <td>@item.Name</td>
+                <td>@item.Degree</td>
+                <td><a href="/Abilities/EditAbility/@item.Id" class="btn btn-danger">Güncelle</a></td>
+                <td><a href="/Abilities/DeleteAbility/@item.Id" class="btn btn-warning">Sil</a></td>
+            </tr>
+        }
+    </table>
+
+</container>
+<br />
+

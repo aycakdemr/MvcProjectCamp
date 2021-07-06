@@ -54,6 +54,21 @@ namespace BusinessLayer.Concrete
             return _contentDal.Get(x => x.ContentId == id);
         }
 
+        public List<ContentCalendarDto> GetCalendar()
+        {
+            List<ContentCalendarDto> chd = new List<ContentCalendarDto>();
+            //foreach (var item in GetList())
+            //{
+            //    chd.Add(new ContentCalendarDto()
+            //    {
+
+            //        ContentName = item.ContentValue,
+            //        ContentDate = item.ContentDate.ToString()
+            //    }); ;
+            //}
+            return chd;
+        }
+
         public List<Content> GetList()
         {
             return _contentDal.List();

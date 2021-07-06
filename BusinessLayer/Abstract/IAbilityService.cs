@@ -10,6 +10,11 @@ namespace BusinessLayer.Abstract
 {
     public interface IAbilityService
     {
-        List<AbilityUserDto> GetList();
+        List<AbilityUserDto> GetListDto();
+        void Add(Ability ability);
+        void Update(Ability ability);
+        void Delete(Ability ability);
+        Ability GetById(int id);
+        List<Ability> GetList();
     }
 }

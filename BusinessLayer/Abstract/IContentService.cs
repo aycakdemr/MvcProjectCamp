@@ -11,6 +11,7 @@ namespace BusinessLayer.Abstract
     public interface IContentService
     {
         List<Content> GetList();
+        List<ContentCalendarDto> GetCalendar();
 
         List<Content> GetList(String p);
         List<ContentChartDto> ContentChart();

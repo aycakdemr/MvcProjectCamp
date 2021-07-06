@@ -68,6 +68,7 @@
     <Compile Include="Dto\CategoryHeadingDto.cs" />
     <Compile Include="Dto\AdminForLoginDto.cs" />
     <Compile Include="Dto\AdminForRegisterDto.cs" />
+    <Compile Include="Dto\ContentCalendarDto.cs" />
     <Compile Include="Dto\ContentChartDto.cs" />
     <Compile Include="Dto\HeadingChartDto.cs" />
     <Compile Include="Dto\Statistics.cs" />
