@@ -18,6 +18,11 @@ namespace BusinessLayer.Concrete
             _imageDal = imageDal;
         }
 
+        public void Add(Image image)
+        {
+            _imageDal.Insert(image);
+        }
+
         public List<Image> GetList()
         {
             return _imageDal.List();

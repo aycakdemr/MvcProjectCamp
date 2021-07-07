@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,15 +19,27 @@ namespace MvcProjeKampi.Controllers
             var v = im.GetList();
             return View(v);
         }
-        [HttpPost]
-        public ActionResult AddImage(HttpPostedFileBase httpPostedFile)
+        [HttpGet]
+        public ActionResult AddImage()
         {
-            if (httpPostedFile.ContentLength > 0)
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddImage(Image image)
+        {
+             if(Request.Files.Count>0)
             {
-                string imagepath = Path.Combine(Server.MapPath("/AdminLTE-3.0.4/images/"), Path.GetFileName(httpPostedFile.FileName));
-                httpPostedFile.SaveAs(imagepath);
+                string fileName = Path.GetFileName(Request.Files[0].FileName);
+                string expansion = Path.GetExtension(Request.Files[0].FileName);
+                string path = "/AdminLTE-3.0.4/images/"+fileName+ expansion;
+                Request.Files[0].SaveAs(Server.MapPath(path));
+                image.ImagePath= "/AdminLTE-3.0.4/images/" + fileName + expansion;
+                im.Add(image);
+                return RedirectToAction("Index");
+                
             }
-            return RedirectToAction("Index", "Gallery");
+            return View();
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace MvcProjeKampi.Controllers
 {
+
     public class AbilitiesController : Controller
     {
         AbilityManager abm = new AbilityManager(new EfAbilityDal());

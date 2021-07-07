@@ -10,6 +10,7 @@ namespace BusinessLayer.Abstract
     public interface IImageService
     {
         List<Image> GetList();
+        void Add(Image image);
 
     }
 }
